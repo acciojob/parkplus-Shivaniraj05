@@ -11,6 +11,7 @@ public class Payment {
     private boolean paymentCompleted;
 
     @OneToOne
+    @JoinColumn
     private Reservation reservation;
     //@Enumerated(value = EnumType.STRING)
     private PaymentMode paymentMode;

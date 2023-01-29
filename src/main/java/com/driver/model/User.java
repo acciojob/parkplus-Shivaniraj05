@@ -1,6 +1,7 @@
 package com.driver.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,11 +17,10 @@ public class User {
     private List<Reservation> reservationList;
 
     public User(String name, String phoneNumber, String password) {
-        this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.password = password;
-        this.reservationList = reservationList;
+        this.reservationList = new ArrayList<>();
     }
 
     public User() {
