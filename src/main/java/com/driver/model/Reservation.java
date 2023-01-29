@@ -5,63 +5,62 @@ import javax.persistence.*;
 @Entity
 @Table(name = "reservation")
 public class Reservation {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private int noOfHours;
-    @ManyToOne
-    @JoinColumn
-    private Spot spot;
+
+    private int numberOfHours;
+
     @ManyToOne
     @JoinColumn
     private User user;
-    @OneToOne
+
+    @OneToMany
+    @JoinColumn
+    private Spot spot;
+
+    @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL)
     private Payment payment;
 
-    public Reservation() {
-    }
+    public Reservation(){}
 
-    public Reservation(int noOfHours) {
-        this.noOfHours = noOfHours;
-    }
-
-    public int getId() {
-        return id;
+    public Reservation(int numOfHours){
+        this.numberOfHours = numOfHours;
     }
 
     public void setId(int id) {
         this.id = id;
     }
-
-    public int getNoOfHours() {
-        return noOfHours;
-    }
-
-    public void setNoOfHours(int noOfHours) {
-        this.noOfHours = noOfHours;
-    }
-
-    public Spot getSpot() {
-        return spot;
-    }
-
-    public void setSpot(Spot spot) {
-        this.spot = spot;
-    }
-
-    public User getUser() {
-        return user;
+    public int getId() {
+        return id;
     }
 
     public void setUser(User user) {
         this.user = user;
     }
+    public User getUser() {
+        return user;
+    }
 
-    public Payment getPayment() {
-        return payment;
+    public void setNumberOfHours(int numberOfHours) {
+        this.numberOfHours = numberOfHours;
+    }
+    public int getNumberOfHours() {
+        return numberOfHours;
     }
 
     public void setPayment(Payment payment) {
         this.payment = payment;
+    }
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setSpot(Spot spot) {
+        this.spot = spot;
+    }
+    public Spot getSpot() {
+        return spot;
     }
 }
