@@ -23,10 +23,8 @@ public class Spot {
 
     }
 
-    public Spot(int id, int pricePerHour, boolean occupied, SpotType spotType, ParkingLot parkingLot, List<Reservation> reservationList) {
-        this.id = id;
+    public Spot( int pricePerHour, SpotType spotType, ParkingLot parkingLot, List<Reservation> reservationList) {
         this.pricePerHour = pricePerHour;
-        this.occupied = occupied;
         this.spotType = spotType;
         this.parkingLot = parkingLot;
         this.reservationList = reservationList;
@@ -48,10 +46,9 @@ public class Spot {
         this.pricePerHour = pricePerHour;
     }
 
-    public boolean isOccupied() {
+    public boolean getOccupied() {
         return occupied;
     }
-
 
     public void setOccupied(boolean occupied) {
         this.occupied = occupied;
